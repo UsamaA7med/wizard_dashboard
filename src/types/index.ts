@@ -18,3 +18,15 @@ export type TState = {
   setFirstName: (value: string) => void
   setLastName: (value: string) => void
 }
+
+export type TKPI = {
+  id: number
+  title: string
+  number: string
+  logo: string
+  text: string
+  textColor: string
+  numberColor: string
+  imageStyle: string
+  boxExtraStyles?: string
+}

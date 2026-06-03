@@ -18,3 +18,37 @@ export const asidebarList = [
     link: '/',
   },
 ]
+
+export const KPIdata = [
+  {
+    id: 1,
+    title: 'TOTAL REGISTERED WIZARDS',
+    number: '1,248',
+    logo: 'KPI1.png',
+    text: '+4% from last moon',
+    textColor: 'text-[#FFB95F]',
+    numberColor: 'text-[#D0BCFF]',
+    imageStyle: 'w-[11.67px] h-[7px]',
+  },
+  {
+    id: 2,
+    title: 'ACTIVE ELIXIRS',
+    number: '856',
+    logo: 'KPI2.png',
+    text: '24 new formulas registered',
+    textColor: 'text-[#FFB95F]',
+    numberColor: 'text-[#FFB95F]',
+    imageStyle: 'w-[10.53px] h-[10.5px]',
+  },
+  {
+    id: 3,
+    title: 'PENDING VERIFICATIONS',
+    number: '12',
+    logo: 'KPI3.png',
+    text: 'Requires High-Council approval',
+    textColor: 'text-[#FFB4AB]',
+    numberColor: 'text-[#FFB4AB]',
+    imageStyle: 'w-[2.33px] h-[10.5px]',
+    boxExtraStyles: 'border-l-[4px]',
+  },
+]
