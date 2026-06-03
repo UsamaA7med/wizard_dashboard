@@ -1,10 +1,14 @@
-import Navbar from './components/Navbar'
+import { Asidebar } from './components/asaidbar/Asidebar'
+import Header from './components/Header'
 import { TableSection } from './components/TableSection'
 
 const App = () => {
   return (
-    <div className="flex flex-col gap-10 w-full">
-      <Navbar />
+    <div className="flex flex-col w-full">
+      <Header />
+      <div>
+        <Asidebar />
+      </div>
       {/* <TableSection /> */}
     </div>
   )

@@ -1,6 +1,6 @@
 import { Input } from './ui/input'
 
-const Navbar = () => {
+const Header = () => {
   return (
     <header className="flex items-center justify-between h-16 px-10 border-b bg-primary/80 backdrop-blur-xl shadow-[0_0_20px_0_rgba(208,188,255,0.15)]">
       <div className="flex w-144.75 h-9 items-center justify-between gap-6">
@@ -26,4 +26,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Header
