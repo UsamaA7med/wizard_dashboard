@@ -1,4 +1,6 @@
 import { KPIdata } from '../../lib/dummy'
+import ActivityChart from '../charts/ActivityChart'
+import SpecialtyChart from '../charts/SpecialtyChart'
 import KPICard from './KPICard'
 
 const MainContent = () => {
@@ -16,6 +18,14 @@ const MainContent = () => {
         {KPIdata.map((kpi) => (
           <KPICard key={kpi.id} styles={kpi} />
         ))}
+      </div>
+      <div className="flex gap-[24px]">
+        <div className="flex flex-1">
+          <SpecialtyChart />
+        </div>
+        <div className="w-[298.6666564941406px]">
+          <ActivityChart />
+        </div>
       </div>
     </div>
   )
