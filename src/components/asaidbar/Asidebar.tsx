@@ -5,7 +5,7 @@ import AsidebarSettings from './AsidebarSettings'
 
 export function Asidebar() {
   return (
-    <aside className="bg-[#0D1C2D] w-[256px] h-335 py-6 flex flex-col border-r backdrop-blur-2xl shadow-[0_8px_10px_-6px_rgba(208,188,255,0.05),0_20px_25px_-5px_rgba(208,188,255,0.05)]">
+    <aside className="hidden xl:flex bg-[#0D1C2D] w-[256px] min-h-screen py-6 flex-col border-r backdrop-blur-2xl shadow-[0_8px_10px_-6px_rgba(208,188,255,0.05),0_20px_25px_-5px_rgba(208,188,255,0.05)] shrink-0">
       <AsidebarRegistry />
       <AsidebarItems />
       <Button
