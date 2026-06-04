@@ -6,17 +6,14 @@ export type TItem = {
 }
 
 export type TQueryProps = {
-  FirstName: string
-  LastName: string
+  query: string
 }
 
 export type TState = {
-  FirstName: string
-  LastName: string
+  query: string
+  setQuery: (value: string) => void
   page: number
   setPage: (value: number) => void
-  setFirstName: (value: string) => void
-  setLastName: (value: string) => void
 }
 
 export type TKPI = {

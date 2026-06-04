@@ -10,7 +10,7 @@ import {
 
 const SkeletonTable = () => {
   return (
-    <Table>
+    <Table className="min-h-[350px]">
       <TableHeader>
         <TableRow>
           <TableHead>

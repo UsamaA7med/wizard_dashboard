@@ -1,11 +1,12 @@
 import { KPIdata } from '../../lib/dummy'
 import ActivityChart from '../charts/ActivityChart'
 import SpecialtyChart from '../charts/SpecialtyChart'
+import { TableSection } from '../TableSection'
 import KPICard from './KPICard'
 
 const MainContent = () => {
   return (
-    <div className="flex flex-1  flex-col gap-[48px] px-[40px] pb-[76px] pt-[40px]">
+    <div className="flex flex-1 flex-col gap-[48px] px-[40px] pb-[76px] pt-[40px]">
       <div>
         <p className="text-[40px] font-bold tracking-[-1px] text-[#D4E4FA]">
           Wizarding Registry Dashboard
@@ -27,6 +28,7 @@ const MainContent = () => {
           <ActivityChart />
         </div>
       </div>
+      <TableSection />
     </div>
   )
 }

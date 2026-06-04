@@ -1,7 +1,6 @@
-import { Cell, Pie, PieChart, RadialBar, RadialBarChart } from 'recharts'
+import { Pie, PieChart } from 'recharts'
 
 const data = [{ value: 1200 }]
-const total = 2000
 
 const ActivityChart = () => {
   return (
