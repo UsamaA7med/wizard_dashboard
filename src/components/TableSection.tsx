@@ -80,7 +80,7 @@ export function TableSection() {
                     </div>
                   </TableCell>
                   <TableCell className="px-4 xl:px-[24px]">
-                    <WizardDetailsModal />
+                    <WizardDetailsModal wizard={item} />
                   </TableCell>
                 </TableRow>
               ))}

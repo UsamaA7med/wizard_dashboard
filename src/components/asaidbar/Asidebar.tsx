@@ -12,6 +12,7 @@ export function Asidebar() {
         className="mx-[24px] mt-[24px] h-[44px] flex gap-[8px] items-center rounded-[12px] bg-[#D0BCFF] text-[#3C0091]
         hover:text-[#3C0091]
         hover:bg-[#D0BCFF]
+        shadow-[0_4px_6px_-4px_rgba(208,188,255,0.2),0_10px_15px_-3px_rgba(208,188,255,0.2)]
         font-semibold text-[14px] tracking-[0.28px]"
       >
         <img src="Icon (9).png" className="w-[8.17px] h-[8.17px]" />

@@ -27,3 +27,9 @@ export type TKPI = {
   imageStyle: string
   boxExtraStyles?: string
 }
+
+export type TModelProps = {
+  firstName: string | null
+  lastName: string | null
+  elixirs: { id: string; name: string }[]
+}
