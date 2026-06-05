@@ -4,6 +4,12 @@ A responsive dashboard for managing and exploring the magical world's wizard reg
 
 ---
 
+## 🔗 Live Demo
+
+Check out the live application here: [Wizarding Registry Dashboard](https://wizard-dashboard-one.vercel.app/)
+
+---
+
 ## 📸 Overview
 
 The dashboard includes:
