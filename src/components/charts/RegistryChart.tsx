@@ -26,7 +26,7 @@ const RegistryChart = () => {
         <p className="font-semibold text-[24px] text-[#D4E4FA]">
           Registry Activity
         </p>
-        <p className="bg-[#273647] rounded-[8px] w-[112px] h-[28px] py-[4px] px-[12px] text-[14px] font-semibold tracking-[0.28px] text-[#D4E4FA]">
+        <p className="bg-[#273647] rounded-[8px] w-[112px] h-[28px] py-[4px] px-[12px] text-[12px] md:text-[14px] font-semibold tracking-[0.28px] text-[#D4E4FA]">
           Last 30 Days
         </p>
       </div>
