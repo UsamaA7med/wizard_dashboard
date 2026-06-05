@@ -1,12 +1,9 @@
-import { Car } from 'lucide-react'
 import {
   Bar,
   BarChart,
   CartesianGrid,
-  Legend,
   ResponsiveContainer,
   Tooltip,
-  XAxis,
 } from 'recharts'
 const data = [
   { value: 42 },
@@ -22,7 +19,7 @@ const data = [
   { value: 32 },
   { value: 76 },
 ]
-const SpecialtyChart = () => {
+const RegistryChart = () => {
   return (
     <div className="h-[398px] flex-1 flex flex-col gap-[8px] rounded-[12px] border-[1px] px-[24px] pt-[24px] pb-[36px]">
       <div className="flex justify-between items-center">
@@ -69,4 +66,4 @@ const CustomTooltip = ({ active, payload }: any) => {
   return null
 }
 
-export default SpecialtyChart
+export default RegistryChart

@@ -23,7 +23,6 @@ export function TableSection() {
   const paginated = data.data?.slice((page - 1) * 4, page * 4)
   const totalPages = Math.ceil((data.data?.length ?? 0) / 4)
   const shortId = (id: string) => `${id.slice(0, 8)}...${id.slice(-6)}`
-
   return (
     <div className="flex flex-col min-h-[496px] rounded-[12px] border-[1px] border-[#D0BCFF1A] bg-[#051424CC]">
       <Search states={{ query, setQuery, page, setPage }} />
@@ -65,18 +64,26 @@ export function TableSection() {
                   </TableCell>
                   <TableCell>
                     <div className="flex gap-[8px]">
-                      <Tooltip>
-                        <TooltipTrigger
-                          className={`rounded-full border-[1px] p-[9px] ${idx % 2 === 0 ? 'bg-[#EE98001A] text-secondary border-[#EE980033]' : 'bg-[#1C2B3C80] text-[#D0BCFF] border-[#A078FF33]'}`}
-                        >
-                          {item.elixirs[0].name}
-                        </TooltipTrigger>
-                        <TooltipContent className="flex flex-col bg-primary text-[#D4E4FA]">
-                          {item.elixirs.map((elixir) => (
-                            <p key={elixir.id}>{elixir.name}</p>
-                          ))}
-                        </TooltipContent>
-                      </Tooltip>
+                      {item.elixirs.length > 0 ? (
+                        <Tooltip>
+                          <TooltipTrigger
+                            className={`rounded-full border-[1px] p-[9px] ${
+                              idx % 2 === 0
+                                ? 'bg-[#EE98001A] text-secondary border-[#EE980033]'
+                                : 'bg-[#1C2B3C80] text-[#D0BCFF] border-[#A078FF33]'
+                            }`}
+                          >
+                            {item.elixirs[0].name}
+                          </TooltipTrigger>
+                          <TooltipContent className="flex flex-col bg-primary text-[#D4E4FA]">
+                            {item.elixirs.map((elixir) => (
+                              <p key={elixir.id}>{elixir.name}</p>
+                            ))}
+                          </TooltipContent>
+                        </Tooltip>
+                      ) : (
+                        <span className="text-[#CBC3D7] text-[14px]">—</span>
+                      )}
                     </div>
                   </TableCell>
                   <TableCell className="px-4 xl:px-[24px]">

@@ -1,7 +1,6 @@
 import type { TKPI } from 'src/types'
 
 const KPICard = ({ styles }: { styles: TKPI }) => {
-  console.log(styles.boxExtraStyles)
   return (
     <div
       className={`bg-[#051424CC] backdrop-blur-md shadow-md h-[158.5px] rounded-[12px]  flex flex-col  p-[24px] border-[1px] justify-between border-[#4944544D] ${styles.boxExtraStyles}`}

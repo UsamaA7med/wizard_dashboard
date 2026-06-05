@@ -2,7 +2,7 @@ import { Pie, PieChart } from 'recharts'
 
 const data = [{ value: 1200 }]
 
-const ActivityChart = () => {
+const WizardsChart = () => {
   return (
     <div className="bg-[#051424CC] border-[1px] rounded-[12px] h-[398px] flex flex-col  p-[25px] pb-[24px]">
       <p className="text-[24px] pb-[24px] font-semibold text-[#D4E4FA]">
@@ -65,4 +65,4 @@ const ActivityChart = () => {
   )
 }
 
-export default ActivityChart
+export default WizardsChart

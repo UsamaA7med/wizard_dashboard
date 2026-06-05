@@ -1,6 +1,6 @@
 import { KPIdata } from '../../lib/dummy'
-import ActivityChart from '../charts/ActivityChart'
-import SpecialtyChart from '../charts/SpecialtyChart'
+import RegistryChart from '../charts/RegistryChart'
+import WizardsChart from '../charts/WizardsChart'
 import { TableSection } from '../TableSection'
 import KPICard from './KPICard'
 
@@ -22,10 +22,10 @@ const MainContent = () => {
       </div>
       <div className="flex flex-col lg:flex-row gap-4 xl:gap-[24px]">
         <div className="flex flex-1 min-w-0">
-          <SpecialtyChart />
+          <RegistryChart />
         </div>
         <div className="w-full lg:w-[298px] xl:w-[298.6666564941406px] shrink-0">
-          <ActivityChart />
+          <WizardsChart />
         </div>
       </div>
       <TableSection />
