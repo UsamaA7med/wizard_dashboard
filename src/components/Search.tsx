@@ -1,4 +1,4 @@
-import type { TState } from 'src/types'
+import type { TState } from '@/types'
 import { Input } from './ui/input'
 import { Separator } from './ui/separator'
 

@@ -1,4 +1,4 @@
-import type { TModelProps } from 'src/types'
+import type { TModelProps } from '@/types'
 import {
   Dialog,
   DialogClose,

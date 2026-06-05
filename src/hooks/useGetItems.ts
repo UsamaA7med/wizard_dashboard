@@ -1,6 +1,6 @@
+import type { TItem, TQueryProps } from '@/types'
 import { useQuery, type UseQueryResult } from '@tanstack/react-query'
 import axios from 'axios'
-import type { TItem, TQueryProps } from 'src/types'
 
 const fetchItems = async ({ query }: TQueryProps): Promise<TItem[]> => {
   const [byFirst, byLast] = await Promise.all([

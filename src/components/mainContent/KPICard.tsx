@@ -1,4 +1,4 @@
-import type { TKPI } from 'src/types'
+import type { TKPI } from '@/types'
 
 const KPICard = ({ styles }: { styles: TKPI }) => {
   return (
