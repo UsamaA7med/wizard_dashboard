@@ -34,7 +34,9 @@ const WizardDetailsModal = ({ wizard }: { wizard: TModelProps }) => {
               Registry ID
             </p>
             <p className="text-[18px] xl:text-[24px] font-semibold text-[#FFB95F]">
-              WR-1897-MS
+              WR-{wizard.id.slice(0, 4).toUpperCase()}-
+              {wizard.firstName?.[0] ?? 'X'}
+              {wizard.lastName?.[0] ?? 'X'}
             </p>
           </div>
         </div>
@@ -56,7 +58,7 @@ const WizardDetailsModal = ({ wizard }: { wizard: TModelProps }) => {
                 Class A Citizen
               </p>
               <p className="rounded-full py-1 px-3 bg-[#FFB95F1A] border border-[#FFB95F4D] text-[#FFB95F]">
-                Class A Citizen
+                Class B Citizen
               </p>
             </div>
           </div>

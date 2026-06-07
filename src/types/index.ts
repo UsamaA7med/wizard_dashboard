@@ -29,6 +29,7 @@ export type TKPI = {
 }
 
 export type TModelProps = {
+  id: string
   firstName: string | null
   lastName: string | null
   elixirs: { id: string; name: string }[]
