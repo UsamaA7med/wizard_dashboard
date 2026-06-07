@@ -51,6 +51,18 @@ export function TableSection() {
               </TableRow>
             </TableHeader>
             <TableBody>
+              {paginated?.length === 0 && (
+                <TableRow>
+                  <TableCell colSpan={5} className="text-center py-16">
+                    <p className="text-[16px] font-medium text-[#CBC3D7]">
+                      No wizards found
+                    </p>
+                    <p className="text-[12px] mt-1 text-[#CBC3D7]/40">
+                      Try a different search term
+                    </p>
+                  </TableCell>
+                </TableRow>
+              )}
               {paginated?.map((item, idx) => (
                 <TableRow key={item.id}>
                   <TableCell className="font-medium text-[#D0BCFF] px-4 xl:px-[24px] py-[24px] whitespace-nowrap">
