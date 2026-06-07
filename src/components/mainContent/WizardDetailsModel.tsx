@@ -26,7 +26,7 @@ const WizardDetailsModal = ({ wizard }: { wizard: TModelProps }) => {
               MEMBER PROFILE
             </p>
             <p className="font-semibold text-[22px] xl:text-[32px] tracking-[-0.32px] text-[#D4E4FA]">
-              {wizard.firstName ?? wizard.lastName ?? wizard.firstName}
+              {wizard.firstName ?? wizard.lastName ?? '—'}
             </p>
           </div>
           <div className="flex flex-col items-end">
