@@ -24,7 +24,7 @@ export function TableSection() {
   const totalPages = Math.ceil((data.data?.length ?? 0) / 4)
   const shortId = (id: string) => `${id.slice(0, 8)}...${id.slice(-6)}`
   return (
-    <div className="flex flex-col min-h-[496px] rounded-[12px] border-[1px] border-[#D0BCFF1A] bg-[#051424CC]">
+    <div className="flex flex-col  rounded-[12px] border-[1px] border-[#D0BCFF1A] bg-[#051424CC]">
       <Search states={{ query, setQuery, page, setPage }} />
       {data.isLoading ? (
         <SkeletonTable />
