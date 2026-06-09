@@ -4,9 +4,9 @@ import MainContent from './components/mainContent/MainContent'
 
 const App = () => {
   return (
-    <div className="flex flex-col w-full min-h-screen overflow-x-hidden">
+    <div className="flex flex-col w-full h-screen overflow-hidden">
       <Header />
-      <div className="flex w-full flex-1">
+      <div className="flex flex-1 overflow-hidden">
         <Asidebar />
         <MainContent />
       </div>
