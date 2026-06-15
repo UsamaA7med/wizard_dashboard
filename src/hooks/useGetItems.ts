@@ -3,29 +3,29 @@ import { useQuery, type UseQueryResult } from '@tanstack/react-query'
 import axios from 'axios'
 
 const fetchItems = async ({ query }: TQueryProps): Promise<TItem[]> => {
-  const [byFirst, byLast] = await Promise.all([
-    axios.get<TItem[]>(`https://wizard-world-api.herokuapp.com/Wizards`, {
-      params: query ? { firstName: query } : {},
-    }),
-    axios.get<TItem[]>(`https://wizard-world-api.herokuapp.com/Wizards`, {
-      params: query ? { lastName: query } : {},
-    }),
-  ])
-
-  const merged = [...byFirst.data, ...byLast.data]
-  const unique = merged.filter(
-    (wizard, index, self) => self.findIndex((w) => w.id === wizard.id) === index
+  const { data } = await axios.get<TItem[]>(
+    'https://wizard-world-api.herokuapp.com/Wizards'
   )
-  return unique
+
+  if (!query?.trim()) return data
+
+  const q = query.trim().toLowerCase()
+
+  return data.filter((wizard) => {
+    const first = wizard.firstName?.toLowerCase() ?? ''
+    const last = wizard.lastName?.toLowerCase() ?? ''
+    const full = `${first} ${last}`.trim()
+
+    return first.includes(q) || last.includes(q) || full.includes(q)
+  })
 }
 
 const useGetItems = ({ query }: TQueryProps): UseQueryResult<TItem[]> => {
-  const data = useQuery({
+  return useQuery({
     queryKey: ['items', { query }],
     queryFn: () => fetchItems({ query }),
     staleTime: 1000 * 60 * 5,
   })
-  return data
 }
 
 export default useGetItems

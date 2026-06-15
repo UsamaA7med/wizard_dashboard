@@ -20,15 +20,13 @@ export function TableSection() {
   const [page, setPage] = useState(1)
   const debouncedQuery = useDebounce(query, 400)
   const data = useGetItems({ query: debouncedQuery })
-  const paginated = data.data?.slice((page - 1) * 4, page * 4)
-  const totalPages = Math.ceil((data.data?.length ?? 0) / 4)
+  const paginated = data.data?.slice((page - 1) * 10, page * 10)
+  const totalPages = Math.ceil((data.data?.length ?? 0) / 10)
   const shortId = (id: string) => `${id.slice(0, 8)}...${id.slice(-6)}`
   return (
     <div className="flex flex-col  rounded-[12px] border-[1px] border-[#D0BCFF1A] bg-[#051424CC]">
       <Search states={{ query, setQuery, page, setPage }} />
-      {data.isLoading ? (
-        <SkeletonTable />
-      ) : data.isError ? (
+      {data.isError ? (
         <div className="flex flex-col items-center justify-center min-h-[350px] gap-3 text-center px-4">
           <p className="text-[16px] font-medium text-[#FFB4AB]">
             {data.error.message}
@@ -121,8 +119,8 @@ export function TableSection() {
       )}
       <div className="bg-[#1C2B3C4D] px-4 xl:px-[24px] h-auto min-h-[65px] py-3 flex flex-wrap items-center justify-between gap-3">
         <p className="text-[12px] font-medium tracking-[0.6px] text-[#CBC3D7]">
-          Showing {(page - 1) * 4 + 1}-
-          {Math.min(page * 4, data.data?.length ?? 0)} of {data.data?.length}{' '}
+          Showing {(page - 1) * 10 + 1}-
+          {Math.min(page * 10, data.data?.length ?? 0)} of {data.data?.length}{' '}
           Records
         </p>
         <PaginationComponent
