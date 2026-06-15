@@ -12,11 +12,13 @@ const fetchItems = async ({ query }: TQueryProps): Promise<TItem[]> => {
   const q = query.trim().toLowerCase()
 
   return data.filter((wizard) => {
-    const first = wizard.firstName?.toLowerCase() ?? ''
-    const last = wizard.lastName?.toLowerCase() ?? ''
-    const full = `${first} ${last}`.trim()
+    const firstName = wizard.firstName?.toLowerCase() ?? ''
+    const lastName = wizard.lastName?.toLowerCase() ?? ''
+    const fullName = `${firstName} ${lastName}`.trim()
+    const result =
+      firstName.includes(q) || lastName.includes(q) || fullName.includes(q)
 
-    return first.includes(q) || last.includes(q) || full.includes(q)
+    return result
   })
 }
 
