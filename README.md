@@ -1,156 +1,154 @@
 # 🧙 Wizarding Registry Dashboard
 
-A responsive dashboard for managing and exploring the magical world's wizard registry. Built with React 19, TypeScript, TanStack Query, and Recharts.
+A mystical, dark-themed admin dashboard for overseeing the magical equilibrium across all wizarding realms. Built with React 19, TypeScript, Vite, Tailwind CSS v4, and shadcn/ui.
 
 ---
 
-## 🔗 Live Demo
+## ✨ Features
 
-Check out the live application here: [Wizarding Registry Dashboard](https://wizard-dashboard-one.vercel.app/)
-
----
-
-## 📸 Overview
-
-The dashboard includes:
-
-- **KPI Cards** — Summary stats for registered wizards, active elixirs, and pending verifications
-- **Charts** — Registry activity bar chart and specialty distribution pie chart
-- **Wizards Table** — Live data from the Wizard World API with debounced search and client-side pagination
-- **Wizard Details Modal** — Expandable profile view with full elixir list
-
----
-
-## 🚀 Getting Started
-
-```bash
-npm install && npm run dev
-```
-
-The app will be running at `http://localhost:5173`
+- **KPI Cards** — At-a-glance metrics to monitor the state of the wizarding world
+- **Interactive Charts** — Registry and Wizards charts powered by Recharts
+- **Wizards Table** — Paginated, searchable table of all registered wizards fetched live from the Wizard World API
+- **Wizard Details Modal** — Click any wizard row to view full details in an elegant dialog
+- **Sidebar Navigation** — Collapsible desktop sidebar with navigation items, registry info, and a "New Elixir" shortcut
+- **Mobile Drawer** — Responsive sheet-based sidebar for mobile/tablet viewports
+- **Debounced Search** — Real-time wizard search with a 400ms debounce to minimize API calls
+- **React Query Caching** — Data is cached for 5 minutes with built-in error and loading states
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Tool                  | Purpose                 |
-| --------------------- | ----------------------- |
-| React 19 + TypeScript | UI & type safety        |
-| Vite                  | Build tool & dev server |
-| Tailwind CSS v4       | Styling                 |
-| TanStack Query v5     | API fetching & caching  |
-| Axios                 | HTTP client             |
-| Recharts              | Charts                  |
-| shadcn/ui + Radix UI  | UI components           |
+| Layer | Technology |
+|---|---|
+| Framework | React 19 |
+| Language | TypeScript 6 |
+| Build Tool | Vite 8 |
+| Styling | Tailwind CSS v4 |
+| UI Components | shadcn/ui + Radix UI |
+| Data Fetching | TanStack React Query v5 + Axios |
+| Charts | Recharts |
+| Routing | React Router DOM v7 |
+| Icons | Lucide React |
+| Font | Geist Variable |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-src/
-├── components/
-│   ├── asaidbar/          # Sidebar navigation
-│   ├── charts/            # ActivityChart, SpecialtyChart
-│   ├── mainContent/       # KPICard, MainContent, WizardDetailsModal
-│   ├── ui/                # shadcn/ui base components
-│   ├── Header.tsx
-│   ├── Search.tsx
-│   ├── TableSection.tsx
-│   ├── PaginationComponent.tsx
-│   └── SkeletonTable.tsx
-├── hooks/
-│   ├── useGetItems.ts     # TanStack Query hook for wizards API
-│   ├── useDebounce.ts     # Generic debounce hook
-│   └── use-mobile.ts
-├── lib/
-│   ├── dummy.ts           # Static KPI & sidebar data
-│   └── utils.ts
-├── types/
-│   └── index.ts           # Shared TypeScript types
-├── App.tsx
-└── main.tsx
+wizard_dashboard/
+├── public/                  # Static assets (icons, images)
+├── src/
+│   ├── assets/              # Bundled assets (hero image, SVGs)
+│   ├── components/
+│   │   ├── asaidbar/        # Sidebar components (desktop + mobile sheet)
+│   │   │   ├── Asidebar.tsx
+│   │   │   ├── AsidebarItems.tsx
+│   │   │   ├── AsidebarRegistry.tsx
+│   │   │   ├── AsidebarSettings.tsx
+│   │   │   └── AsidebarSheet.tsx
+│   │   ├── charts/          # Data visualization components
+│   │   │   ├── RegistryChart.tsx
+│   │   │   └── WizardsChart.tsx
+│   │   ├── mainContent/     # Dashboard main area
+│   │   │   ├── KPICard.tsx
+│   │   │   ├── MainContent.tsx
+│   │   │   └── WizardDetailsModel.tsx
+│   │   ├── ui/              # shadcn/ui base components
+│   │   ├── Header.tsx
+│   │   ├── Search.tsx
+│   │   ├── TableSection.tsx
+│   │   └── PaginationComponent.tsx
+│   ├── hooks/
+│   │   ├── use-mobile.ts    # Responsive breakpoint hook
+│   │   ├── useDebounce.ts   # Input debounce hook
+│   │   └── useGetItems.ts   # Wizard data fetching hook
+│   ├── App.tsx
+│   └── index.css            # Global styles & Tailwind config
+├── index.html
+├── package.json
+├── vite.config.ts
+└── tsconfig.json
 ```
 
 ---
 
-## 🔌 API
+## 🚀 Getting Started
 
-**Base URL:** `https://wizard-world-api.herokuapp.com/Wizards`
+### Prerequisites
 
-| Param              | Description          |
-| ------------------ | -------------------- |
-| `?FirstName=Harry` | Filter by first name |
-| `?LastName=Potter` | Filter by last name  |
+- Node.js **v18+**
+- npm **v9+**
 
-**Response shape:**
-
-```ts
-{
-  id: string
-  firstName: string | null
-  lastName: string | null
-  elixirs: {
-    id: string
-    name: string
-  }
-  ;[]
-}
-```
-
-> `firstName` and `lastName` can be `null` — the app displays `"Unknown"` as a fallback.
-
----
-
-## ✨ Features
-
-### Wizards Table
-
-- Fetches live data from the Wizard World API
-- Handles `null` names gracefully with `"(None)"` fallback
-- Elixir names shown in a tooltip on hover
-- "View" action opens a full wizard profile modal
-
-### Debounced Search
-
-- Filters wizards by first or last name
-- Fires the API request **400ms** after the user stops typing
-- Runs two parallel requests (`?FirstName=` and `?LastName=`) and merges + deduplicates results
-- Resets to page 1 on every new search
-
-### Pagination
-
-- Client-side pagination (4 rows per page)
-- Shows current range and total records
-- Resets automatically when search query changes
-
-### Loading & Empty States
-
-- Skeleton loader shown while fetching
-- Graceful handling of empty results
-
----
-
-## 📦 Available Scripts
+### Installation & Development
 
 ```bash
-npm run dev       # Start dev server
-npm run build     # Type-check + production build
-npm run preview   # Preview production build locally
-npm run lint      # Run ESLint
+# Clone the repository
+git clone https://github.com/your-username/wizard_dashboard.git
+cd wizard_dashboard
+
+# Install dependencies and start the dev server
+npm start
 ```
+
+Or run the steps separately:
+
+```bash
+npm install
+npm run dev
+```
+
+The app will be available at **http://localhost:5173**.
+
+### Available Scripts
+
+| Script | Description |
+|---|---|
+| `npm start` | Install dependencies and start the dev server |
+| `npm run dev` | Start Vite development server |
+| `npm run build` | Type-check and build for production |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
 
 ---
 
-## 🔮 What I'd Improve With More Time
+## 🌐 API
 
-- **Rows per page selector** — Let the user choose between 4, 10, or 25 rows per page
-- **Sorting** — Click column headers to sort by name or elixir count
-- **Real chart data** — Connect charts to live API data instead of static values
-- **Error boundary** — Graceful UI fallback if the API is down
-- **Animated transitions** — Page and search transitions for a smoother feel
-- **URL state sync** — Persist search query and page in the URL so the browser back button works
+Wizard data is fetched from the public [Wizard World API](https://wizard-world-api.herokuapp.com):
+
+```
+GET https://wizard-world-api.herokuapp.com/Wizards
+```
+
+Results are cached client-side for **5 minutes** via React Query. Client-side filtering is applied on top of the cached data for instant search.
+
+---
+
+## 📱 Responsive Design
+
+| Breakpoint | Layout |
+|---|---|
+| Mobile (`< md`) | Full-width content, hamburger menu with slide-out drawer |
+| Tablet (`md`) | Header search visible, drawer navigation |
+| Desktop (`xl+`) | Fixed 256px sidebar, full dashboard layout |
+
+---
+
+## 🎨 Design System
+
+The dashboard uses a deep-space dark theme built on custom Tailwind tokens:
+
+- **Background**: `#051424` / `#0D1C2D`
+- **Primary accent**: `#D0BCFF` (soft lavender)
+- **Text primary**: `#D4E4FA`
+- **Text secondary**: `#CBC3D7`
+- **Border**: `#D0BCFF1A` (translucent lavender)
+
+---
 
 <div align="center">
-  <h3>Created with ❤️ by Osama Ahmed</h3>
+
+Created with ❤️ by Osama Ahmed
+
 </div>
