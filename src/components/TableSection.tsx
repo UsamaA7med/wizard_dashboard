@@ -28,6 +28,18 @@ export function TableSection() {
       <Search states={{ query, setQuery, page, setPage }} />
       {data.isLoading ? (
         <SkeletonTable />
+      ) : data.isError ? (
+        <div className="flex flex-col items-center justify-center min-h-[350px] gap-3 text-center px-4">
+          <p className="text-[16px] font-medium text-[#FFB4AB]">
+            {data.error.message}
+          </p>
+          <button
+            onClick={() => data.refetch()}
+            className="mt-2 px-4 py-2 rounded-[8px] bg-[#D0BCFF] text-[#3C0091] text-[14px] font-semibold cursor-pointer"
+          >
+            Try again
+          </button>
+        </div>
       ) : (
         <div className="overflow-x-auto rounded-md border min-h-[350px]">
           <Table>
