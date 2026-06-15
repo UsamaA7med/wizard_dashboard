@@ -11,7 +11,6 @@ import { useState } from 'react'
 import useGetItems from '../../src/hooks/useGetItems'
 import { PaginationComponent } from './PaginationComponent'
 import { useDebounce } from '../../src/hooks/useDebounce'
-import SkeletonTable from './SkeletonTable'
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 import WizardDetailsModal from './mainContent/WizardDetailsModel'
 
